@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Ngỏ Đặc Biệt!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/sakura-js@1.1.1/dist/sakura.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            margin: 0;
+            background-color: #fcecdb; 
+            transition: background-color 1s ease-in-out; 
+            overflow-x: hidden; 
+            color: #333; 
+        }
+
+        body.pink-background {
+            background-color: #ffe8ed; 
+        }
+
+        .section {
+            background: white; 
+            padding: 20px; 
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 90%; 
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeInPop 0.8s forwards ease-out;
+            animation-delay: 0.3s; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px; 
+        }
+
+        @keyframes fadeInPop {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #d63384; 
+            margin-bottom: 10px;
+            font-size: 2.8em; 
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #envelope-section {
+            cursor: pointer; 
+            background-color: transparent; 
+            box-shadow: none; 
+            padding: 0; 
+            min-height: unset; 
+        }
+
+        #envelope-section img {
+            max-width: 80%; 
+            height: auto;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        #envelope-section img:hover {
+            transform: scale(1.05); 
+        }
+        #envelope-section .message-text {
+            color: #555;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        #envelope-section .sub-message-text {
+            color: #777;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        #bouquet-section {
+            cursor: pointer; 
+            border: 2px solid #ffc0cb; 
+            padding: 20px;
+            background-color: white; 
+        }
+        #bouquet-section img {
+            max-width: 100%; 
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        #bouquet-section img:hover {
+            transform: scale(1.03);
+        }
+        #bouquet-section p {
+            margin-top: 20px; 
+            font-style: italic; 
+            color: #e17ab3; 
+            border: 2px solid #e17ab3; 
+            padding: 10px 15px; 
+            border-radius: 10px; 
+            display: inline-block;
+        }
+
+        #final-wish-section h1 {
+            font-family: 'Pacifico', cursive;
+            color: #d63384;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        #final-wish-section p {
+            color: #555;
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+        #final-wish-section .heart-emoji {
+            font-size: 3em; 
+            margin-top: 30px; 
+            margin-bottom: 0;
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="envelope-section" class="section">
+        <img src="https://sf-static.upanhlaylink.com/img/image_20251115d72fd778c24b3754d7299e793fc9d6e2.jpg" alt="Bì thư" class="envelope-image">
+        <p class="message-text">BẠN CÓ THƯ!</p>
+        <p class="sub-message-text">Ấn vào bì thư để đọc thư</p>
+    </div>
+
+    <div id="bouquet-section" class="section hidden">
+        <img src="https://sf-static.upanhlaylink.com/img/image_2025111517b445ff1255de763574f3f882f13cb2.jpg" alt="Bó hoa" class="bouquet-image">
+        <p>ẤN TIẾP ĐI 😊</p>
+    </div>
+
+    <div id="final-wish-section" class="section hidden">
+        <h1>Gửi CÔ!</h1>
+        <p><b>Chúc cô luôn xinh đẹp, vui vẻ, hạnh phúc 💖!</b></p>
+        <p class="heart-emoji">💖</p>
+    </div>
+
+    <script>
+        const envelopeSection = document.getElementById('envelope-section');
+        const bouquetSection = document.getElementById('bouquet-section');
+        const finalWishSection = document.getElementById('final-wish-section');
+        const body = document.body; 
+
+        envelopeSection.addEventListener('click', function() {
+            envelopeSection.classList.add('hidden');
+            bouquetSection.classList.remove('hidden');
+            body.classList.add('pink-background'); 
+            console.log('Đã mở bì thư, chuyển sang bó hoa!');
+        });
+
+        bouquetSection.addEventListener('click', function() {
+            bouquetSection.classList.add('hidden');
+            finalWishSection.classList.remove('hidden');
+            
+            console.log('Đã mở bó hoa, chuyển sang lời chúc cuối!');
+
+            var sakura = new Sakura('body', {
+                colors: [
+                    {
+                        gradient: [
+                            {
+                                stops: [[0, 'rgba(255, 183, 197, 0.9)'], [1, 'rgba(255, 192, 203, 0.8)']],
+                                type: 'radial',
+                            },
+                        ],
+                        petal: '#FFB7C5',
+                    },
+                ]
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sakura-js@1.1.1/dist/sakura.min.js"></script>
+
+</body>
+</html>
